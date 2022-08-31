@@ -1,0 +1,28 @@
+{% load static %}
+<script defer src="{% static 'global/js/highlights.js' %}"></script>
+<div class="slider-container">
+    <div class="slider">
+        {% for highlights_vehicle in highlights_vehicles %}
+        <div class="myslide fade">
+            <div class="txt">
+                <h1>{{ highlights_vehicle.title }}</h1>
+            </div>
+            <img src="{{ highlights_vehicle.cover.url }}" style="width: 100%; height: 100%;">
+        </div>
+        {% empty %}
+        <div class="txt">
+            <h1>Desculpe, nenhum veículo foi encontrado</h1>
+        </div>
+        {% endfor %}
+
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        
+        <div class="dotsbox" style="text-align:center">
+            {% for highlights_vehicle in highlights_vehicles %}
+            <span class="dot" onclick="currentSlide({{ forloop.counter }})"></span>
+            {% endfor %}
+        </div>
+        <!-- /onclick js -->
+    </div>
+</div>

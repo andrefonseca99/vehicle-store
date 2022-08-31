@@ -1,0 +1,17 @@
+{% extends 'global/base.html' %}
+
+{% block title %}Vehicles |{% endblock title %}
+
+{% block content %}
+{% include 'vehicles/partials/highlights.html' %}
+<div class="main-content main-content-list container">
+    {% for vehicle in vehicles %}
+        {% include 'vehicles/partials/vehicle.html' %}
+    {% empty %}
+        <div class="center m-y">
+            <h1>No sneakers found</h1>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock content %}
