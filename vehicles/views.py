@@ -1,12 +1,19 @@
 from django.shortcuts import render
 from django.views.generic import DetailView, ListView
 
-from .models import Vehicle
+from .models import Category, Vehicle
 
 # Create your views here.
 
 def home(request, *args, **kwargs):
-    return render(request, 'vehicles/pages/home.html')
+    vehicles = Vehicle.objects.filter(
+        is_published=True
+    ).order_by('-id')
+    categories = Category.objects.filter().order_by('id')
+    return render(request, 'vehicles/pages/home.html', context={
+        'vehicles': vehicles,
+        'categories': categories
+    })
 
 def vehicle(request, *args, **kwargs):
     vehicles = Vehicle.objects.filter(

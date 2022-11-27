@@ -5,6 +5,8 @@
     --color-dark-gray-0: #2b2a2a;
     --color-super-dark-gray-0: #181717;
 
+    --color-black: #000000;
+
     --color-gray-0: #f9f9f9;
     --color-gray-1: #e0e0e0;
     --color-gray-2: #c7c7c7;
@@ -24,6 +26,7 @@
     --font-headings: 'Roboto Slab', serif;
     --font-headings-2: 'Courgette', serif;
 
+    --spacing-gutter-small: 1rem;
     --spacing-gutter-medium: 3rem;
     --spacing-gutter-large: 4rem;
 }
@@ -311,6 +314,140 @@ header {
 .link:hover::after {
     transform: scaleX(1);
     transform-origin: bottom left;
+}
+
+/* New Home */
+
+.main-conteudo {
+    display: block;
+}
+
+.main-banner {
+    width: auto;
+    height: 40vh;
+
+    background: blueviolet;
+}
+
+.categories-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    color: #181717;
+}
+
+.categories-title h2 {
+    font-size: 15px;
+    color: var(--color-gray-5);
+}
+
+.categories {
+    padding: 25px;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: 10px;
+    justify-items: center;
+}
+
+.category-item {
+    height: 100%;
+    padding: 10px;
+    display: block;
+
+    transform: scale(1);
+    transition: all 300ms ease-in-out;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.category-item:hover {
+    transform: scale(1.02);
+}
+
+.category-item img {
+    border-radius: 10px;
+    max-width: 100%;
+}
+
+.category-item h4 {
+    display: flex;
+    justify-content: center;
+
+    color: var(--color-black);
+    font-size: 20px;
+}
+
+.explore-vehicles {
+    width: 100%;
+}
+
+.explore-title {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+
+    color: var(--color-black);
+}
+
+.explore-content {
+    padding: 25px;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(34rem, 1fr));
+    gap: 1.5rem;
+    justify-items: center;
+}
+
+.card {
+ padding: 10px;
+ display: block;
+
+ transform: scale(1);
+ transition: all 300ms ease-in-out;
+ overflow: hidden;
+ border-radius: 10px;
+}
+
+.card:hover {
+    transform: scale(1.02);
+}
+
+.cover img {
+    border-radius: 10px;
+    max-width: 100%;
+}
+
+.title h4 {
+    color: var(--color-black);
+    font-size: 25px;
+    margin-bottom: var(--spacing-gutter-small);
+}
+
+.description h4 {
+    color: var(--color-black);
+    margin-bottom: var(--spacing-gutter-small);
+}
+
+.car-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-gutter-small);
+    color: var(--color-black); 
+}
+
+.manufacture_year,
+.mileage {
+    display: flex;
+    gap: var(--spacing-gutter-small);
+}
+
+.price {
+    color: var(--color-black);
 }
 
 @media only screen and (max-width: 600px) {

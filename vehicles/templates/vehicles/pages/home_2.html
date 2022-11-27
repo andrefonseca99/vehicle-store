@@ -1,0 +1,67 @@
+{% extends 'global/base.html' %}
+{% load humanize %}
+
+{% block title %}Home |{% endblock title %}
+
+{% block content %}
+<div class="main-conteudo">
+    <section class="main-banner">
+        <div class="banner-image"></div>
+    </section>
+
+    <hr>
+    
+    <section class="categories-highlights">
+        <div class="categories-title">
+            <h1> EXPLORE NOSSOS MODELOS </h1>
+            <h2> Uma grande variedade de modelos de diversas categorias para você </h2>
+        </div>
+        <div class="categories">
+            {% for category in categories %}
+                <div class="category-item">
+                    <img src="./media/backgrounds/use_this.jpg">
+                    <h4>{{ category.name }}</h4>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <hr>
+
+    <section class="explore-vehicles">
+        <div class="explore-title">
+            <h1> ÚLTIMAS NOVIDADES </h1>
+        </div>
+        <div class="explore-content">
+            {% for vehicle in vehicles %}
+                <div class="card">
+                    <div class="cover">
+                        <img src="{{ vehicle.cover.url }}">
+                    </div>
+                    <div class="title">
+                        <h4>{{ vehicle.title }}</h4>
+                    </div>
+                    <div class="description">
+                        <h4>{{ vehicle.description }}</h4>
+                    </div>
+                    <div class="car-info">
+                        <div class="manufacture_year">
+                            <i class="fa-regular fa-calendar-days"></i>
+                            <h4>{{ vehicle.manufacture_year }}</h4>
+                        </div>
+                        <div class="mileage">
+                            <i class="fa-solid fa-gauge"></i>
+                            <h4>{{ vehicle.mileage|intcomma }}</h4>
+                        </div>
+                    </div>
+                    <div class="price">
+                        <h3>R$ {{ vehicle.price|intcomma }}</h3>
+                    </div>                    
+                </div>
+            {% endfor %}
+
+        </div>
+    </section>
+</div>
+
+{% endblock content %}
